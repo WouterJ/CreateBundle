@@ -1,30 +1,72 @@
-/* Create toolbar */
-/******************/
+/*******************************\
+    CREATE UI TOOLBAR
+\*******************************/
 a.create-ui-toggle {
-    background-image: url("/bundles/cmfcreate/img/createbundle.png");
+    background-image:none;
+    line-height:68px;
+    padding-top:0;
+    margin-top:0;
+    margin-left:60px;
+    height:66px;
+    cursor:pointer;
+    border:2px #666;
+    border-style:none solid;
+    padding-left:9px;
+}
+.create-ui-toggle:after{
+    content:'\276E ';
+    color:#fff;
+    font-size:30px;
+}
+.create-ui-toggle.closed:after { content:'\276F '; }
+.create-ui-logo{
+    background:url("/bundles/cmfcreate/img/createbundle.svg") no-repeat #4a4a4a;
+    background-size:40px;
+    background-position:10px center;
+    height:66px;
+    width:98px;
+}
+.create-ui-toolbar-wrapper{
+    background:#4a4a4a;
+    height:66px;
 }
 
-/* General contenteditable before editing */
-/*******************************************/
+a.create-ui-btn {
+    box-shadow: none;
+    font-size: 13pt;
+    border: 1px solid #2c679b;
+    background: #5898d0;
+    padding: 6px 14px;
+    border-radius: 3px;
+}
+a.create-ui-btn:hover{
+    background: #448cca;
+    border-color: transparent;
+}
+.create-ui-btn .icon-edit:before{
+    content:'\f040 ';
+}
+
+
+
+
+
+/*******************************\
+    EDITABLE BLOCKS
+\*******************************/
 [contenteditable="true"]:hover{
-    cursor: pointer;
+    cursor:pointer;
+    outline-color:#aaa;
 }
 
-[contenteditable="true"] {
-    outline: 1px solid lightgreen;
-    position: relative;
-    z-index: 1;
+[contenteditable="true"]{
+    outline:2px dashed #ddd;
+    position:relative;
+    z-index:1;
 }
 
-/* General contenteditable while editing */
-/*****************************************/
-[contenteditable].inEditMode {
-    cursor: auto;
-    outline: 3px solid black;
-}
-
-/* Create ui toolbar while editing */
-/***********************************/
-.create-ui-toolbar-wrapper.editing {
-    background: rgba(160, 216, 56, 0.8);
+[contenteditable]:focus,
+[contenteditable].inEditMode{
+    cursor:auto;
+    outline:3px solid black;
 }

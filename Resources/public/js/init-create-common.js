@@ -1,9 +1,14 @@
-jQuery(document).ready(function() {
-    jQuery('body').midgardCreate('configureEditor', 'title', 'editWidget', {
+jQuery(function($) {
+    var $body = $('body');
+
+    $body.midgardCreate({
+        highlight: false,
     });
 
-    jQuery('body').midgardCreate('widget').midgardWorkflows('setActionType', 'confirm_destroy', function (model, workflow, callback) {
-        jQuery('body').midgardNotifications('create', {
+    $body.midgardCreate('configureEditor', 'title', 'editWidget', {});
+
+    $body.midgardCreate('widget').midgardWorkflows('setActionType', 'confirm_destroy', function (model, workflow, callback) {
+        $body.midgardNotifications('create', {
             bindTo: jQuery('#midgardcreate-workflow_delete'),
             gravity: 'T',
             body: 'Delete ' + model.getSubjectUri() + '?',
@@ -20,6 +25,6 @@ jQuery(document).ready(function() {
     });
 
     jQuery(cmfCreatePlainTextTypes).each(function(index, value) {
-        jQuery('body').midgardCreate('setEditorForProperty', value, 'title');
+        $body.midgardCreate('setEditorForProperty', value, 'title');
     });
 });

@@ -38,6 +38,22 @@
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
+<script>
+jQuery(function ($) {
+    var $toggleBtn;
+
+    $('body').on('midgardtoolbarstatechange', function (e, data) {
+        $toggleBtn || ($toggleBtn = $('#create-ui-toggle-toolbar'));
+
+        if ('full' === data.display) {
+            $toggleBtn.removeClass('closed');
+        } else {
+            $toggleBtn.addClass('closed');
+        }
+    });
+});
+</script>
+
 {#
 to develop create use this instead of create-min
     '@CmfCreateBundle/Resources/public/vendor/create/src/*.js'
